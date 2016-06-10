@@ -1,9 +1,14 @@
 <html>
   <style>
+    .print-only, .print-only * {
+      display: none;
+    }
     @media print {
       .no-print, .no-print * {
-        display: none !important;
+        display: none ;
       }
+      .print-only, .print-only * {
+      display: inline;
     }
   </style>
   <body>
@@ -11,10 +16,14 @@
       This text should appear on page 1 when printing.
     </div>
     <div style="page-break-before: always;">
-      This text should appear on page 2 when printing.<br>
+      This text should appear on page 2 when printing.<p>
       Text to the right should not print:
       <span class="no-print">
-        This should not print
+        <b>This should not print</b>
+      </span>
+      <br>Text to the right should be visible ONLY when printed:
+      <span class="print-only">
+        <b>This should only be visible when printed</b>
       </span>
     </div>
   </body>
